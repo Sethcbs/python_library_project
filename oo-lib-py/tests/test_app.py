@@ -53,6 +53,24 @@ def test_details_lines():
 
 #start of new tests
 
+def test_multiple_details_lines():
+    cat = setup_sample()
+    m = Member("Y")
+    m.borrow("B2")
+    m.borrow("B1")
+    m.borrow("D1")
+    lines = m.list_details(cat)
+    assert len(lines) == 3
+
+    assert "Pythonic Patterns" in lines[0]
+    assert "(14 days)" in lines[0]
+
+    assert "Rust for Humans" in lines[1]
+    assert "(14 days)" in lines[1]
+
+    assert "Taking Flight" in lines[2]
+    assert "(7 days)" in lines[2]
+
 def test_name():
     m = Member("Y")
     m2 = Member("X")
