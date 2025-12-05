@@ -18,16 +18,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v5
+      - name: checkout the repository
+        uses: actions/checkout@v5
+        
+      - name: make sure 
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      - run: pip install -r requirements.txt
+      - name: install pytest
         working-directory: oo-lib-py/
+        run: pip install pytest
         
-      - run: python3 -m app
+      - name: run the python app
         working-directory: oo-lib-py/
+        run: python3 -m app
 
-      - run: python3 -m pytest
+      - name: run our python tests
         working-directory: oo-lib-py/
+        run: python3 -m pytest
