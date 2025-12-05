@@ -11,7 +11,7 @@ on:
       path:
         description: "Path to link"
         required: true
-        default: "."
+        default: "./oo-lib-py/"
 
 jobs:
   test:
