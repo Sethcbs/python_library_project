@@ -21,6 +21,6 @@ jobs:
   
       - uses: actions/checkout@v5
     
-      - run: python3 -m app.py
+      - run: python3 -m app
     
       - run: python3 -m pytest
