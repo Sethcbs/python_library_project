@@ -18,11 +18,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-  
       - uses: actions/checkout@v5
-      
-      - working-directory: oo-lib-py/
-        run: python3 -m app
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
 
-      - working-directory: oo-lib-py/
-        run: python3 -m pytest
+      - run: pip install -r requirements.txt
+        working-directory: oo-lib-py/
+        
+      - run: python3 -m app
+        working-directory: oo-lib-py/
+
+      - run: python3 -m pytest
+        working-directory: oo-lib-py/
