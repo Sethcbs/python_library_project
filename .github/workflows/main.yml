@@ -1,0 +1,26 @@
+name: Python CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+    inputs:
+      path:
+        description: "Path to link"
+        required: true
+        default: "."
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+  
+      - uses: actions/checkout@v5
+    
+      - run: python3 -m app.py
+    
+      - run: python3 -m pytest
