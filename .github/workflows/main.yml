@@ -20,7 +20,9 @@ jobs:
     steps:
   
       - uses: actions/checkout@v5
-    
-      - run: python3 -m app
-    
-      - run: python3 -m pytest
+      
+      - working-directory: oo-lib-py/
+        run: python3 -m app
+
+      - working-directory: oo-lib-py/
+        run: python3 -m pytest
